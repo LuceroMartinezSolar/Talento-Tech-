@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css">
-</head> <!-- Cierre de la etiqueta head -->
+</head>
 <body>
     <header>
         <h1>Apuntes de Algoritmos</h1>
         <nav>
             <ul>
-                <li><a href="#inicio">Inicio</a></li> 
+                <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#archivos">Archivos</a></li>
                 <li><a href="#listas">Listas Enlazadas</a></li>
                 <li><a href="#pilas">Pilas y Colas</a></li>
@@ -26,32 +26,34 @@
     <main>
         <section id="inicio">
             <h2>Bienvenidos</h2>
-            <p>¡Hola a todos! 💖 Bienvenidos a mi rincón. Aquí estoy compartiendo mis apuntes del segundo parcial de Algoritmos. Mi idea es recopilar información útil sobre Algoritmos y Estructura de Datos para que todos podamos aprender y disfrutar juntos de esta materia. Estoy muy emocionada de compartir mi experiencia con ustedes y espero que este espacio se convierta en un lugar acogedor donde cada uno encuentre lo que necesita para brillar.</p> <p>Quiero que sepan que la información aún no está completa, pero con el tiempo espero poder añadir todo lo que falta. Y, como somos estudiantes, es posible que haya algún error. ¡Así que cualquier crítica constructiva es más que bienvenida! Juntos podemos mejorar y hacer de este un lugar especial para aprender en comunidad.</p>        <section id="archivos">
+            <p>¡Hola a todos! 💖 Bienvenidos a mi rincón. Aquí estoy compartiendo mis apuntes del segundo parcial de Algoritmos. Mi idea es recopilar información útil sobre Algoritmos y Estructura de Datos para que todos podamos aprender y disfrutar juntos de esta materia. Estoy muy emocionada de compartir mi experiencia con ustedes y espero que este espacio se convierta en un lugar acogedor donde cada uno encuentre lo que necesita para brillar.</p>
+            <p>Quiero que sepan que la información aún no está completa, pero con el tiempo espero poder añadir todo lo que falta. Y, como somos estudiantes, es posible que haya algún error. ¡Así que cualquier crítica constructiva es más que bienvenida! Juntos podemos mejorar y hacer de este un lugar especial para aprender en comunidad.</p>
+        </section>
+
+        <section id="archivos">
             <h2>Archivos</h2>
             <p>Son estructuras de datos que se caracterizan por ser de almacenamiento permanente. A diferencia de las estructuras vistas anteriormente (array y structs) que eran de almacenamiento temporal. Los datos almacenados en archivos son datos persistentes y permanecen incluso después de la ejecución del programa que los almacenó.</p>
             <h3>Tipos de archivos</h3>
-                <p>
-                    <ul>
-                        <li><b>Texto: </b> Se utilizan para almacenar cadenas de caracteres.</li>
-                        <li><b>Binario: </b>Se utilizan para almacenar cualquier tipo de datos.</li>
-                    </ul>   
-                    En mi comisión, trabajamos más que nada con textos binarios, así que muchos ejercicios serán resueltos tratandolos como tales. 
-                </p>
-            <h3>Identificador de un archivo</h3>
-            <p>Cuando un archivo se abre, se asocia a un identificador o variable. Este identificador es un puntero a archivo</p>
-            <pre><code class="language-cpp">
-                //Declaración de variable del tipo puntero a FILE en C
-                FILE * miArchivo;
-            </code></pre>
-            <h3>Apertura de un archivo</h3>
-            <p>Utilizamos la función <b>fopen()</b>.
-            Para abrir un archivo vamos a utilizar la función fopen. Esta función recibe el nombre físico del archivo y una cadena que indica la modalidad de apertura.
+            <p>
+                <ul>
+                    <li><b>Texto:</b> Se utilizan para almacenar cadenas de caracteres.</li>
+                    <li><b>Binario:</b> Se utilizan para almacenar cualquier tipo de datos.</li>
+                </ul>
+                En mi comisión, trabajamos más que nada con archivos binarios, así que muchos ejercicios serán resueltos tratándolos como tales.
             </p>
 
+            <h3>Identificador de un archivo</h3>
+            <p>Cuando un archivo se abre, se asocia a un identificador o variable. Este identificador es un puntero a archivo.</p>
             <pre><code class="language-cpp">
-            //Declaración de variable del tipo puntero a FILE en C
-            FILE * numeros = fopen(“misNumeros.dat”,”wb”);
-            }
+// Declaración de variable del tipo puntero a FILE en C
+FILE * miArchivo;
+            </code></pre>
+
+            <h3>Apertura de un archivo</h3>
+            <p>Utilizamos la función <b>fopen()</b> para abrir un archivo. Esta función recibe el nombre físico del archivo y una cadena que indica la modalidad de apertura.</p>
+            <pre><code class="language-cpp">
+// Declaración de variable del tipo puntero a FILE en C
+FILE * numeros = fopen("misNumeros.dat", "wb");
             </code></pre>
 
             <table>
@@ -61,108 +63,160 @@
                 </tr>
                 <tr>
                     <td>wb</td>
-                    <td>Se crea una archivo binario para escribir, si existe se crea de nuevo, pero vacío.</td>
+                    <td>Se crea un archivo binario para escribir. Si existe, se crea de nuevo, pero vacío.</td>
                 </tr>
                 <tr>
                     <td>rb</td>
                     <td>Se abre un archivo binario para leerlo.</td>
                 </tr>
-
                 <tr>
                     <td>w</td>
-                    <td>Se crea un archivo de texto para escribir, si existe se crea de nuevo, pero
-                        vacío.
-                        </td>
+                    <td>Se crea un archivo de texto para escribir. Si existe, se crea de nuevo, pero vacío.</td>
                 </tr>
                 <tr>
                     <td>r</td>
-                    <td>Se abre un archivo de texto para leerlo</td>
+                    <td>Se abre un archivo de texto para leerlo.</td>
                 </tr>
                 <tr>
                     <td>+</td>
-                    <td>Agrega la otra modalidad, por ejemplo “wb+” además de escritura permite
-                        lectura.</td>
+                    <td>Agrega la otra modalidad, por ejemplo "wb+" que además de escritura, permite lectura.</td>
                 </tr>
             </table>
         </section>
+
         <section id="ejercicios">
             <h2>Ejercicios</h2>
             <h3>Ejercicio 1</h3>
-            <p>1) Crear un archivo binario e ingresar registros de productos.
-                Desarrolla un programa en C que cree un archivo binario llamado PRODUCTOS.DAT y
-                grabe al menos tres registros, donde cada registro contiene la información de un producto.
-                Cada producto debe tener un identificador único, nombre del producto, precio y cantidad en
-                stoc</p>
-            <pre><code class="language-cpp">
-                #include <iostream>
-                    #include <cstring>  // Para usar strcpy
-                    #include <stdio.h>
-                    using namespace std;
-                    
-                    struct registroProducto {
-                        int identificador;
-                        char nombre[50]; // Arreglo para almacenar una cadena de caracteres
-                        float precio;
-                        int cantStock;
-                    };
-                    
-                    int main() {
-                        // Abrir el archivo para escritura y lectura en modo binario
-                        FILE* productosArch = fopen("PRODUCTOS.DAT", "wb+");
-                    
-                        //Declaramos variable productoRegistrado tipo RegistroProducto
-                        registroProducto productoRegistrado;
-                        // Primer producto
-                        productoRegistrado.identificador = 1234;
-                        strcpy(productoRegistrado.nombre, "Botella");
-                        productoRegistrado.precio = 10.50;
-                        productoRegistrado.cantStock = 100;
-                        fwrite(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
-                    
-                        // Segundo producto
-                        productoRegistrado.identificador = 12345;
-                        strcpy(productoRegistrado.nombre, "Vaso");
-                        productoRegistrado.precio = 5.75;
-                        productoRegistrado.cantStock = 20;
-                        fwrite(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
-                    
-                        // Tercer producto
-                        productoRegistrado.identificador = 12346;
-                        strcpy(productoRegistrado.nombre, "Plato");
-                        productoRegistrado.precio = 12.99;
-                        productoRegistrado.cantStock = 50;
-                        fwrite(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
-                    
-                        // Volver al inicio del archivo para leer los registros
-                        fseek(productosArch, 0, SEEK_SET);
-                    
-                        // Leer el archivo usando while (!feof(archivo))
-                        fread(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
-                       
-                       //while(fread(&productoRegistrado, sizeof(registroProducto, 1, productosArch), cando sea 0 estoy en el final, osea false
-                        while (!feof(productosArch)) {
-                            
-                            // Mostrar el registro si se leyó correctamente
-                            cout << "ID: " << productoRegistrado.identificador << endl;
-                            cout << "Nombre: " << productoRegistrado.nombre << endl;
-                            cout << "Precio: $" << productoRegistrado.precio << endl;
-                            cout << "Cantidad en stock: " << productoRegistrado.cantStock << endl;
-                            cout << "---------------------------" << endl;
-                            fread(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
-                    
-                        }
-                    
-                        // Cerrar el archivo
-                        fclose(productosArch);
-                    
-                        return 0;
-                    }
-            </code></pre>
+            <p>1) Crear un archivo binario e ingresar registros de productos.</p>
+            <p>Desarrolla un programa en C que cree un archivo binario llamado PRODUCTOS.DAT y grabe al menos tres registros, donde cada registro contiene la información de un producto. Cada producto debe tener un identificador único, nombre del producto, precio y cantidad en stock.</p>
+            <button class="boton">Mostrar solución</button>
+            <div class="boton - contenido" style="display: none;">
+                <pre><code class="language-cpp">
+#include <iostream>
+#include <cstring>  // Para usar strcpy
+#include <stdio.h>
+using namespace std;
+
+struct registroProducto {
+    int identificador;
+    char nombre[50]; // Arreglo para almacenar una cadena de caracteres
+    float precio;
+    int cantStock;
+};
+
+int main() {
+    // Abrir el archivo para escritura y lectura en modo binario
+    FILE* productosArch = fopen("PRODUCTOS.DAT", "wb+");
+
+    // Declaramos variable productoRegistrado tipo RegistroProducto
+    registroProducto productoRegistrado;
+    
+    // Primer producto
+    productoRegistrado.identificador = 1234;
+    strcpy(productoRegistrado.nombre, "Botella");
+    productoRegistrado.precio = 10.50;
+    productoRegistrado.cantStock = 100;
+    fwrite(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
+
+    // Segundo producto
+    productoRegistrado.identificador = 12345;
+    strcpy(productoRegistrado.nombre, "Vaso");
+    productoRegistrado.precio = 5.75;
+    productoRegistrado.cantStock = 20;
+    fwrite(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
+
+    // Tercer producto
+    productoRegistrado.identificador = 12346;
+    strcpy(productoRegistrado.nombre, "Plato");
+    productoRegistrado.precio = 12.99;
+    productoRegistrado.cantStock = 50;
+    fwrite(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
+
+    // Volver al inicio del archivo para leer los registros
+    fseek(productosArch, 0, SEEK_SET);
+
+    // Leer el archivo usando while (!feof(archivo))
+    fread(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
+
+    //while(fread(&productoRegistrado, sizeof(registroProducto, 1, productosArch), cuando sea 0 estoy en el final, osea false)
+    while (!feof(productosArch)) {
+        // Mostrar el registro si se leyó correctamente
+        cout << "ID: " << productoRegistrado.identificador << endl;
+        cout << "Nombre: " << productoRegistrado.nombre << endl;
+        cout << "Precio: $" << productoRegistrado.precio << endl;
+        cout << "Cantidad en stock: " << productoRegistrado.cantStock << endl;
+        cout << "---------------------------" << endl;
+        fread(&productoRegistrado, sizeof(registroProducto), 1, productosArch);
+    }
+
+    // Cerrar el archivo
+    fclose(productosArch);
+
+    return 0;
+}
+                </code></pre>
+            </div>
 
             <h3>Ejercicio 2</h3>
-            <p>Descripción del segundo ejercicio y su solución.</p>
+            <p>3) Se conoce de cada alumno de un curso los siguientes datos: legajo (8 dígitos) y las notas
+                de 2 parciales (0..10), que finaliza con un legajo negativo.
+                Se pide desarrollar un programa que ingrese los datos de los alumnos por teclado y grabe
+                en un archivo binario CURSO.DAT un registro por cada estudiante con el número de legajo
+                y su promedio (real).</p>
+            <button class = "boton"> Mostrar solución </button>
             <!-- Agrega más ejercicios según sea necesario -->
+            <div class="boton - contenido" style="display: none;">
+                <pre><code class="language-cpp"> 
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+struct registroAlumno {
+    int legajo;         // Almacena el número de legajo (8 dígitos)
+    float promedio;     // Almacena el promedio de las notas
+};
+
+int main() {
+    FILE* archivo = fopen("CURSO.DAT", "wb");  // Abrimos el archivo en modo binario para escritura
+
+    registroAlumno alumno;  // Estructura para almacenar el registro de cada alumno
+
+    int nota1, nota2;  // Variables para las notas de los dos parciales
+
+    cout << "Ingrese el legajo del alumno (o un número negativo para terminar): ";
+    cin >> alumno.legajo;
+
+    // Ingresar datos mientras el legajo no sea negativo
+    while (alumno.legajo >= 0) {
+        cout << "Ingrese la nota del primer parcial: ";
+        cin >> nota1;
+
+        cout << "Ingrese la nota del segundo parcial: ";
+        cin >> nota2;
+
+        // Calcular el promedio
+        alumno.promedio = (nota1 + nota2) / 2;
+
+        // Escribir el registro en el archivo binario
+        fwrite(&alumno, sizeof(registroAlumno), 1, archivo);
+
+        // Pedir el siguiente legajo
+        cout << "Ingrese el legajo del alumno (o un número negativo para terminar): ";
+        cin >> alumno.legajo;
+    }
+
+    // Cerrar el archivo
+    fclose(archivo);
+
+    cout << "Datos guardados en CURSO.DAT." << endl;
+
+    return 0;
+}
+               
+                </code></pre>
+            </div>
         </section>
+
         <section id="recursos">
             <h2>Recursos</h2>
             <ul>
@@ -171,6 +225,7 @@
                 <!-- Agrega más recursos según sea necesario -->
             </ul>
         </section>
+
         <section id="contacto">
             <h2>Contacto</h2>
             <form>
@@ -184,6 +239,7 @@
             </form>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2024 Apuntes de Algoritmos</p>
     </footer>
@@ -191,5 +247,8 @@
     <script>
         hljs.highlightAll();
     </script>
+<script src="archivo.js"></script>
+
 </body>
 </html>
+
